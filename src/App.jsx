@@ -10,7 +10,7 @@ import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <div className="bg-zinc-950 min-h-screen text-zinc-300 antialiased selection:bg-zinc-800 selection:text-white">
+    <div className="bg-[#faf6fe] min-h-screen text-zinc-700 antialiased selection:bg-purple-100 selection:text-purple-900">
       {/* Navigation */}
       <Navbar />
 

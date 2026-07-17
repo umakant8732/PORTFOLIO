@@ -131,18 +131,18 @@ export default function Projects() {
   }, [filter]); // Re-run animation when filtering changes
 
   return (
-    <section id="projects" ref={sectionRef} className="py-24 bg-zinc-950/40 border-t border-zinc-900">
+    <section id="projects" ref={sectionRef} className="py-24 bg-[#faf6fe] border-t border-purple-100/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="projects-header text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-purple-950 mb-4">
             Featured Projects
           </h2>
           <p className="text-sm sm:text-base text-zinc-500 max-w-lg mx-auto">
             A handpicked selection of freelance portals, corporate modules, and personal full-stack projects.
           </p>
-          <div className="w-12 h-0.5 bg-zinc-800 mx-auto mt-4" />
+          <div className="w-12 h-0.5 bg-purple-200 mx-auto mt-4" />
         </div>
 
         {/* Filter Controls */}
@@ -153,8 +153,8 @@ export default function Projects() {
               onClick={() => setFilter(cat)}
               className={`px-4 py-2 rounded-md text-xs sm:text-sm font-medium transition-all cursor-pointer ${
                 filter === cat 
-                  ? 'bg-zinc-800 text-white border border-zinc-700' 
-                  : 'text-zinc-400 hover:text-white hover:bg-zinc-900 border border-transparent'
+                  ? 'bg-purple-100 text-purple-950 border border-purple-200' 
+                  : 'text-zinc-600 hover:text-purple-700 hover:bg-purple-50 border border-transparent'
               }`}
             >
               {cat}
@@ -172,21 +172,21 @@ export default function Projects() {
               <div>
                 <div className="flex items-center justify-between gap-4 mb-4">
                   <div className="flex items-center gap-2">
-                    <FolderGit2 className="w-5 h-5 text-zinc-400" />
-                    <span className="text-xs font-semibold text-zinc-500 tracking-wider uppercase">
+                    <FolderGit2 className="w-5 h-5 text-purple-400" />
+                    <span className="text-xs font-semibold text-purple-600 tracking-wider uppercase">
                       {project.category}
                     </span>
                   </div>
-                  <span className="text-xs text-zinc-500 font-medium">
+                  <span className="text-xs text-zinc-400 font-medium">
                     {project.period}
                   </span>
                 </div>
 
-                <h3 className="text-lg sm:text-xl font-bold text-white mb-3 hover:text-gray-200 transition-colors">
+                <h3 className="text-lg sm:text-xl font-bold text-purple-950 mb-3 hover:text-purple-750 transition-colors">
                   {project.title}
                 </h3>
                 
-                <p className="text-sm text-zinc-400 mb-6 leading-relaxed">
+                <p className="text-sm text-zinc-600 mb-6 leading-relaxed">
                   {project.description}
                 </p>
 
@@ -194,8 +194,8 @@ export default function Projects() {
                 {project.highlights && (
                   <ul className="mb-6 space-y-2">
                     {project.highlights.map((highlight, hIdx) => (
-                      <li key={hIdx} className="text-xs text-zinc-500 flex items-start gap-1.5 leading-normal">
-                        <span className="text-zinc-700 select-none mt-0.5">•</span>
+                      <li key={hIdx} className="text-xs text-zinc-600 flex items-start gap-1.5 leading-normal">
+                        <span className="text-purple-300 select-none mt-0.5">•</span>
                         <span>{highlight}</span>
                       </li>
                     ))}
@@ -207,7 +207,7 @@ export default function Projects() {
                   {project.tags.map((tag, tagIdx) => (
                     <span 
                       key={tagIdx}
-                      className="px-2 py-1 text-[11px] font-mono bg-zinc-900 border border-zinc-800 rounded text-zinc-400"
+                      className="px-2 py-1 text-[11px] font-mono bg-purple-50 border border-purple-100/80 rounded text-purple-700"
                     >
                       {tag}
                     </span>
@@ -216,13 +216,13 @@ export default function Projects() {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex items-center gap-4 pt-4 border-t border-zinc-900/60">
+              <div className="flex items-center gap-4 pt-4 border-t border-purple-100">
                 {project.github !== '#' && (
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-xs font-medium text-zinc-400 hover:text-white transition-colors"
+                    className="flex items-center gap-1.5 text-xs font-medium text-zinc-600 hover:text-purple-700 transition-colors"
                   >
                     <Github className="w-4 h-4" />
                     Codebase
@@ -233,7 +233,7 @@ export default function Projects() {
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-xs font-medium text-zinc-400 hover:text-white transition-colors"
+                    className="flex items-center gap-1.5 text-xs font-medium text-zinc-600 hover:text-purple-700 transition-colors"
                   >
                     <ExternalLink className="w-4 h-4" />
                     Live Demo

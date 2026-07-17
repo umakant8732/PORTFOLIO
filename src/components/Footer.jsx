@@ -7,12 +7,12 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-zinc-950 border-t border-zinc-900 py-12">
+    <footer className="bg-[#faf6fe] border-t border-purple-100/80 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         
         {/* Name and Tag */}
         <div className="mb-6">
-          <h3 className="text-white font-semibold text-lg">UMAKANT BHENDARKAR</h3>
+          <h3 className="text-purple-950 font-semibold text-lg">UMAKANT BHENDARKAR</h3>
           <p className="text-zinc-500 text-xs mt-1">Full Stack Developer &bull; MERN Expert</p>
         </div>
 
@@ -22,7 +22,7 @@ export default function Footer() {
             href="https://github.com/umakant8732"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-zinc-500 hover:text-white transition-colors"
+            className="text-zinc-500 hover:text-purple-700 transition-colors"
             aria-label="GitHub"
           >
             <Github className="w-5 h-5" />
@@ -31,14 +31,14 @@ export default function Footer() {
             href="https://www.linkedin.com/in/umakant-bhendarkar-758303256/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-zinc-500 hover:text-white transition-colors"
+            className="text-zinc-500 hover:text-purple-700 transition-colors"
             aria-label="LinkedIn"
           >
             <Linkedin className="w-5 h-5" />
           </a>
           <a
             href="mailto:umakantbhendarkar94@gmail.com"
-            className="text-zinc-500 hover:text-white transition-colors"
+            className="text-zinc-500 hover:text-purple-700 transition-colors"
             aria-label="Email"
           >
             <Mail className="w-5 h-5" />

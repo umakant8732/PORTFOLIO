@@ -33,8 +33,8 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo/Name */}
           <div className="flex-shrink-0 nav-item">
-            <a href="#home" className="text-xl font-bold tracking-tight text-white hover:text-gray-300 transition-colors">
-              UMAKANT<span className="text-zinc-400">.B</span>
+            <a href="#home" className="text-xl font-bold tracking-tight text-purple-950 hover:text-purple-700 transition-colors">
+              UMAKANT<span className="text-purple-500">.B</span>
             </a>
           </div>
 
@@ -44,7 +44,7 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="nav-item text-sm font-medium text-zinc-400 hover:text-white transition-colors"
+                className="nav-item text-sm font-medium text-zinc-600 hover:text-purple-700 transition-colors"
               >
                 {link.name}
               </a>
@@ -57,7 +57,7 @@ export default function Navbar() {
               href="https://github.com/umakant8732"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-zinc-400 hover:text-white transition-colors"
+              className="text-zinc-600 hover:text-purple-700 transition-colors"
               aria-label="GitHub"
             >
               <Github className="w-5 h-5" />
@@ -66,7 +66,7 @@ export default function Navbar() {
               href="https://www.linkedin.com/in/umakant-bhendarkar-758303256/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-zinc-400 hover:text-white transition-colors"
+              className="text-zinc-600 hover:text-purple-700 transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5" />
@@ -77,7 +77,7 @@ export default function Navbar() {
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleMenu}
-              className="text-zinc-400 hover:text-white focus:outline-none"
+              className="text-zinc-600 hover:text-purple-700 focus:outline-none"
               aria-label="Toggle menu"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -88,24 +88,24 @@ export default function Navbar() {
 
       {/* Mobile Menu Drawer */}
       {isOpen && (
-        <div className="md:hidden bg-zinc-950/95 border-b border-zinc-800">
+        <div className="md:hidden bg-[#faf6fe]/95 border-b border-purple-100">
           <div className="px-2 pt-2 pb-4 space-y-1 sm:px-3">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-medium text-zinc-400 hover:text-white hover:bg-zinc-900 transition-colors"
+                className="block px-3 py-2 rounded-md text-base font-medium text-zinc-600 hover:text-purple-700 hover:bg-purple-50 transition-colors"
               >
                 {link.name}
               </a>
             ))}
-            <div className="flex space-x-4 px-3 py-3 border-t border-zinc-900 mt-2">
+            <div className="flex space-x-4 px-3 py-3 border-t border-purple-100 mt-2">
               <a
                 href="https://github.com/umakant8732"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-400 hover:text-white"
+                className="text-zinc-600 hover:text-purple-700"
               >
                 <Github className="w-5 h-5" />
               </a>
@@ -113,7 +113,7 @@ export default function Navbar() {
                 href="https://www.linkedin.com/in/umakant-bhendarkar-758303256/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-400 hover:text-white"
+                className="text-zinc-600 hover:text-purple-700"
               >
                 <Linkedin className="w-5 h-5" />
               </a>

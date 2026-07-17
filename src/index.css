@@ -7,8 +7,8 @@
   }
   
   body {
-    background-color: #0d0e12;
-    color: #cbd5e1;
+    background-color: #faf6fe;
+    color: #1e1b4b;
     overflow-x: hidden;
   }
 }
@@ -18,62 +18,67 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0d0e12;
+  background: #faf6fe;
 }
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: #e9d5ff;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
+  background: #c084fc;
 }
 
 /* Custom Classes */
 .glass-nav {
-  background-color: rgba(13, 14, 18, 0.75);
+  background-color: rgba(250, 246, 254, 0.8);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(39, 39, 42, 0.4);
+  border-bottom: 1px solid rgba(216, 180, 254, 0.4);
+  box-shadow: 0 1px 3px 0 rgba(124, 58, 237, 0.05);
 }
 
 .glass-card {
-  background-color: rgba(20, 21, 26, 0.5);
+  background-color: rgba(255, 255, 255, 0.65);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(39, 39, 42, 0.4);
+  border: 1px solid rgba(216, 180, 254, 0.4);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px -1px rgba(124, 58, 237, 0.03), 0 2px 4px -1px rgba(124, 58, 237, 0.02);
 }
 
 .glass-card:hover {
-  border-color: rgba(161, 161, 170, 0.4);
-  background-color: rgba(28, 29, 36, 0.6);
+  border-color: rgba(168, 85, 247, 0.5);
+  background-color: rgba(255, 255, 255, 0.95);
   transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(124, 58, 237, 0.08), 0 4px 6px -2px rgba(124, 58, 237, 0.04);
 }
 
 .timeline-line {
-  background: linear-gradient(to bottom, #27272a, #3f3f46, #27272a);
+  background: linear-gradient(to bottom, #e9d5ff, #7c3aed, #e9d5ff);
 }
 
 .btn-primary {
-  background-color: #f4f4f5;
-  color: #09090b;
+  background-color: #7c3aed;
+  color: #ffffff;
   font-weight: 500;
   transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 6px -1px rgba(124, 58, 237, 0.2);
 }
 
 .btn-primary:hover {
-  background-color: #e4e4e7;
+  background-color: #6d28d9;
   transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px rgba(124, 58, 237, 0.3);
 }
 
 .btn-secondary {
-  background-color: rgba(24, 25, 32, 0.5);
-  color: #f4f4f5;
-  border: 1px solid rgba(63, 63, 70, 0.6);
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #7c3aed;
+  border: 1px solid rgba(124, 58, 237, 0.4);
   font-weight: 500;
   transition: all 0.2s ease-in-out;
 }
 
 .btn-secondary:hover {
-  background-color: rgba(39, 39, 42, 0.8);
-  border-color: #a1a1aa;
+  background-color: rgba(124, 58, 237, 0.05);
+  border-color: #7c3aed;
   transform: translateY(-1px);
 }
