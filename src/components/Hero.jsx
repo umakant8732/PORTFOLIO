@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ArrowRight } from 'lucide-react';
+import BackgroundCodeTyping from './ui/BackgroundCodeTyping';
 
 export default function Hero() {
   const containerRef = useRef(null);
@@ -31,6 +32,9 @@ export default function Hero() {
       ref={containerRef}
       className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden bg-[#faf6fe]"
     >
+      {/* Dynamic Background Code Typing Simulator */}
+      <BackgroundCodeTyping />
+
       {/* Decorative Subtle Radial Lights */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-purple-300/10 blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-purple-400/5 blur-3xl pointer-events-none" />
