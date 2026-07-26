@@ -5,7 +5,7 @@ export default function App() {
   const [scale, setScale] = useState(1);
   const wrapperRef = useRef(null);
   const PAGE_WIDTH = 820;
-  const PAGE_HEIGHT = 1300;
+  const PAGE_HEIGHT = 1140;
 
   const handlePrint = () => {
     window.print();
@@ -84,22 +84,22 @@ export default function App() {
         
         {/* Header Block */}
         <div className="text-center pb-3 border-b border-slate-200">
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-wide uppercase text-slate-900">
+          <h1 className="text-3xl sm:text-[44px] font-extrabold tracking-wide uppercase text-slate-900">
             UMAKANT BHENDARKAR
           </h1>
-          <p className="text-xs font-bold tracking-widest text-slate-600 mt-1.5 uppercase">
+          <p className="text-xs sm:text-[15px] font-bold tracking-widest text-slate-600 mt-1.5 uppercase">
             Full Stack Developer (MERN)
           </p>
           
           {/* Contact Details */}
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-xs text-slate-700 mt-2.5 font-medium">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-xs sm:text-[13.5px] text-slate-700 mt-2.5 font-medium">
             <span className="flex items-center gap-1">
-              <Phone className="w-3 h-3 text-slate-500" />
+              <Phone className="w-3.5 h-3.5 text-slate-500" />
               +91 9588418970
             </span>
             <span className="text-slate-300">|</span>
             <a href="mailto:umakantbhendarkar94@gmail.com" className="flex items-center gap-1 hover:text-blue-700 transition-colors">
-              <Mail className="w-3 h-3 text-slate-500" />
+              <Mail className="w-3.5 h-3.5 text-slate-500" />
               umakantbhendarkar94@gmail.com
             </a>
             <span className="text-slate-300">|</span>
@@ -112,7 +112,7 @@ export default function App() {
             </a>
             <span className="text-slate-300">|</span>
             <span className="flex items-center gap-1">
-              <MapPin className="w-3 h-3 text-slate-500" />
+              <MapPin className="w-3.5 h-3.5 text-slate-500" />
               Nagbhid, Maharashtra 441205
             </span>
           </div>
