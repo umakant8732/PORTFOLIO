@@ -78,7 +78,7 @@ export default function App() {
             height: `${PAGE_HEIGHT}px`,
             transform: `scale(${scale})`,
             marginBottom: `calc(${PAGE_HEIGHT * scale}px - ${PAGE_HEIGHT}px)`,
-            fontFamily: 'Georgia, serif'
+            fontFamily: '"EB Garamond", Garamond, Georgia, serif'
           }}
         >
         
