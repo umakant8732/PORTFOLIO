@@ -71,6 +71,8 @@ export default function App() {
           className="bg-white shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-slate-200/50 print:border-none print:shadow-none p-8 sm:p-10 text-slate-900 leading-normal print-page flex flex-col justify-between origin-top shrink-0"
           style={{
             width: `${PAGE_WIDTH}px`,
+            minWidth: `${PAGE_WIDTH}px`,
+            maxWidth: 'none',
             height: `${PAGE_HEIGHT}px`,
             transform: `scale(${scale})`,
             marginBottom: `calc(${PAGE_HEIGHT * scale}px - ${PAGE_HEIGHT}px)`,
