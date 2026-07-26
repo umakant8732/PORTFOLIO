@@ -5,7 +5,7 @@ export default function App() {
   const [scale, setScale] = useState(1);
   const wrapperRef = useRef(null);
   const PAGE_WIDTH = 820;
-  const PAGE_HEIGHT = 1140;
+  const PAGE_HEIGHT = 1170;
 
   const handlePrint = () => {
     window.print();
@@ -123,7 +123,7 @@ export default function App() {
           <h2 className="text-xs font-extrabold tracking-wider uppercase text-slate-900 border-b-2 border-slate-900 pb-0.5 mb-2">
             Technical Skills
           </h2>
-          <ul className="space-y-0.5 text-xs text-slate-800 list-disc pl-4 leading-relaxed font-medium">
+          <ul className="space-y-0.5 text-xs sm:text-[13px] text-slate-800 list-disc pl-4 leading-relaxed font-medium text-justify">
             <li>
               <strong className="text-slate-950 font-bold">Frontend:</strong> React.js, TypeScript, JavaScript (ES6+), Redux Toolkit, TanStack Query, Tailwind CSS
             </li>
@@ -153,13 +153,13 @@ export default function App() {
             {/* Experience Block 1 */}
             <div>
               <div className="flex justify-between items-baseline mb-0.5">
-                <h3 className="text-[13px] font-bold text-slate-950">Amika Softwares</h3>
-                <span className="text-[10px] font-semibold text-slate-600">Dec 2024 – Dec 2025 | Nagpur, India</span>
+                <h3 className="text-[13px] sm:text-[14.5px] font-bold text-slate-950">Amika Softwares</h3>
+                <span className="text-[10px] sm:text-[11px] font-semibold text-slate-600">Dec 2024 – Dec 2025 | Nagpur, India</span>
               </div>
               <div className="flex justify-between items-baseline mb-1">
-                <p className="text-xs font-bold text-slate-800">Jr. MERN Stack Developer</p>
+                <p className="text-xs sm:text-[13px] font-bold text-slate-800">Jr. MERN Stack Developer</p>
               </div>
-              <ul className="space-y-0.5 text-xs text-slate-800 list-disc pl-4 leading-relaxed">
+              <ul className="space-y-0.5 text-xs sm:text-[13px] text-slate-800 list-disc pl-4 leading-relaxed text-justify">
                 <li>
                   Built and delivered <strong className="text-slate-950 font-semibold">15+ full-stack modules</strong> for <strong className="text-slate-950 font-semibold">E-commerce</strong>, <strong className="text-slate-950 font-semibold">Insurance CRM</strong>, and <strong className="text-slate-950 font-semibold">Hospital Management systems</strong>.
                 </li>
@@ -184,13 +184,13 @@ export default function App() {
             {/* Experience Block 2 */}
             <div>
               <div className="flex justify-between items-baseline mb-0.5">
-                <h3 className="text-[13px] font-bold text-slate-950">Amika Softwares</h3>
-                <span className="text-[10px] font-semibold text-slate-600">Jun 2024 – Dec 2024 | Nagpur, India</span>
+                <h3 className="text-[13px] sm:text-[14.5px] font-bold text-slate-950">Amika Softwares</h3>
+                <span className="text-[10px] sm:text-[11px] font-semibold text-slate-600">Jun 2024 – Dec 2024 | Nagpur, India</span>
               </div>
               <div className="flex justify-between items-baseline mb-1">
-                <p className="text-xs font-bold text-slate-800">React Developer (Intern)</p>
+                <p className="text-xs sm:text-[13px] font-bold text-slate-800">React Developer (Intern)</p>
               </div>
-              <ul className="space-y-0.5 text-xs text-slate-800 list-disc pl-4 leading-relaxed">
+              <ul className="space-y-0.5 text-xs sm:text-[13px] text-slate-800 list-disc pl-4 leading-relaxed text-justify">
                 <li>
                   Built modular and responsive user interfaces in <strong className="text-slate-950 font-semibold">React.js</strong> with a focus on reusability and clean component design.
                 </li>
@@ -220,15 +220,15 @@ export default function App() {
             {/* Project Block 1 */}
             <div>
               <div className="flex justify-between items-baseline mb-0.5">
-                <h3 className="text-[13px] font-bold text-slate-950 flex items-center gap-1">
+                <h3 className="text-[13px] sm:text-[14.5px] font-bold text-slate-950 flex items-center gap-1">
                   Acadex LMS Platform (Personal Project)
                   <a href="https://acadexlearning.xyz" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 no-print">
                     <Link2 className="w-3.5 h-3.5" />
                   </a>
                 </h3>
-                <span className="text-[10px] font-semibold text-slate-600">May 2026 – Present</span>
+                <span className="text-[10px] sm:text-[11px] font-semibold text-slate-600">May 2026 – Present</span>
               </div>
-              <ul className="space-y-0.5 text-xs text-slate-800 list-disc pl-4 leading-relaxed">
+              <ul className="space-y-0.5 text-xs sm:text-[13px] text-slate-800 list-disc pl-4 leading-relaxed text-justify">
                 <li>
                   Built a scalable LMS with separate teacher and student modules using <strong className="text-slate-950 font-semibold">React.js</strong>, <strong className="text-slate-950 font-semibold">Node.js</strong>, <strong className="text-slate-950 font-semibold">Express.js</strong>, and <strong className="text-slate-950 font-semibold">MongoDB</strong>.
                 </li>
@@ -253,15 +253,15 @@ export default function App() {
             {/* Project Block 2 */}
             <div>
               <div className="flex justify-between items-baseline mb-0.5">
-                <h3 className="text-[13px] font-bold text-slate-950 flex items-center gap-1">
+                <h3 className="text-[13px] sm:text-[14.5px] font-bold text-slate-950 flex items-center gap-1">
                   Gram Panchayat Information Portal (Freelance)
                   <a href="https://grampanchayat-kotgaon.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 no-print">
                     <Link2 className="w-3.5 h-3.5" />
                   </a>
                 </h3>
-                <span className="text-[10px] font-semibold text-slate-600">Jan 2026 – Present</span>
+                <span className="text-[10px] sm:text-[11px] font-semibold text-slate-600">Jan 2026 – Present</span>
               </div>
-              <ul className="space-y-0.5 text-xs text-slate-800 list-disc pl-4 leading-relaxed">
+              <ul className="space-y-0.5 text-xs sm:text-[13px] text-slate-800 list-disc pl-4 leading-relaxed text-justify">
                 <li>
                   <strong className="text-slate-950 font-semibold">Independently</strong> designed, developed, and deployed a responsive Gram Panchayat website.
                 </li>
@@ -291,24 +291,24 @@ export default function App() {
             {/* Education Block 1 */}
             <div className="flex justify-between items-baseline">
               <div>
-                <h3 className="text-[12px] font-bold text-slate-950">Master of Computer Application (MCA)</h3>
-                <p className="text-[10px] text-slate-600 mt-0.5 font-medium">Inter Institutional Computer Centre, RTMNU Nagpur</p>
+                <h3 className="text-[12px] sm:text-[13px] font-bold text-slate-950">Master of Computer Application (MCA)</h3>
+                <p className="text-[10px] sm:text-[11px] text-slate-600 mt-0.5 font-medium">Inter Institutional Computer Centre, RTMNU Nagpur</p>
               </div>
               <div className="text-right">
-                <span className="text-[10px] font-semibold text-slate-600 block">Nov 2021 – Sep 2023</span>
-                <span className="text-[10px] text-slate-500 block mt-0.5">Nagpur, India</span>
+                <span className="text-[10px] sm:text-[11px] font-semibold text-slate-600 block">Nov 2021 – Sep 2023</span>
+                <span className="text-[10px] sm:text-[11px] text-slate-500 block mt-0.5">Nagpur, India</span>
               </div>
             </div>
 
             {/* Education Block 2 */}
             <div className="flex justify-between items-baseline">
               <div>
-                <h3 className="text-[12px] font-bold text-slate-950">Bachelor of Science (Computer Science)</h3>
-                <p className="text-[10px] text-slate-600 mt-0.5 font-medium">Rashtrapita Mahatma Gandhi Arts & Science College, Nagbhid</p>
+                <h3 className="text-[12px] sm:text-[13px] font-bold text-slate-950">Bachelor of Science (Computer Science)</h3>
+                <p className="text-[10px] sm:text-[11px] text-slate-600 mt-0.5 font-medium">Rashtrapita Mahatma Gandhi Arts & Science College, Nagbhid</p>
               </div>
               <div className="text-right">
-                <span className="text-[10px] font-semibold text-slate-600 block">Jul 2017 – Sep 2021</span>
-                <span className="text-[10px] text-slate-500 block mt-0.5">Nagbhid, India</span>
+                <span className="text-[10px] sm:text-[11px] font-semibold text-slate-600 block">Jul 2017 – Sep 2021</span>
+                <span className="text-[10px] sm:text-[11px] text-slate-500 block mt-0.5">Nagbhid, India</span>
               </div>
             </div>
 
