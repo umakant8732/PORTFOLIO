@@ -65,18 +65,18 @@ export default function Education() {
   ];
 
   return (
-    <section id="education" ref={sectionRef} className="py-24 bg-[#faf6fe] border-t border-purple-100/50">
+    <section id="education" ref={sectionRef} className="py-24 bg-[#f8fafc] border-t border-purple-100/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="edu-header text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-purple-950 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-4">
             Education
           </h2>
-          <p className="text-sm sm:text-base text-zinc-500 max-w-md mx-auto">
+          <p className="text-sm sm:text-base text-slate-500 max-w-md mx-auto">
             My academic foundation and qualifications.
           </p>
-          <div className="w-12 h-0.5 bg-purple-200 mx-auto mt-4" />
+          <div className="w-12 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto mt-4" />
         </div>
 
         {/* Education Grid */}
@@ -92,16 +92,16 @@ export default function Education() {
                     <GraduationCap className="w-6 h-6 text-purple-600" />
                   </div>
                   <div>
-                    <h3 className="text-base sm:text-lg font-bold text-purple-950 leading-tight">
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-tight">
                       {edu.degree}
                     </h3>
-                    <p className="text-xs sm:text-sm text-zinc-600 mt-1">
+                    <p className="text-xs sm:text-sm text-slate-500 mt-1">
                       {edu.institution}
                     </p>
                   </div>
                 </div>
 
-                <p className="text-sm text-zinc-600 leading-relaxed mb-6">
+                <p className="text-sm text-slate-600 leading-relaxed mb-6">
                   {edu.description}
                 </p>
               </div>
@@ -109,11 +109,11 @@ export default function Education() {
               {/* Stats & Meta Footer */}
               <div className="pt-6 border-t border-purple-100 flex flex-wrap items-center justify-between gap-4">
                 <div className="flex flex-col gap-2">
-                  <div className="flex items-center gap-2 text-xs text-zinc-600">
+                  <div className="flex items-center gap-2 text-xs text-slate-500">
                     <Calendar className="w-4 h-4 text-purple-400" />
                     <span>{edu.period}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-xs text-zinc-600">
+                  <div className="flex items-center gap-2 text-xs text-slate-500">
                     <MapPin className="w-4 h-4 text-purple-400" />
                     <span>{edu.location}</span>
                   </div>
@@ -121,7 +121,7 @@ export default function Education() {
 
                 {/* Score badge */}
                 <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-50 border border-purple-100 text-xs font-semibold text-purple-700">
-                  <Award className="w-4 h-4 text-purple-500" />
+                  <Award className="w-4 h-4 text-purple-600" />
                   <span>Score: {edu.grade}</span>
                 </div>
               </div>

@@ -60,7 +60,7 @@ function getTechIcon(name) {
         </svg>
       );
     case 'Express.js':
-      return <Server className={`${sizeClass} text-slate-700`} />;
+      return <Server className={`${sizeClass} text-slate-500`} />;
     case 'REST APIs':
       return <Globe className={`${sizeClass} text-indigo-500`} />;
     case 'JWT Auth':
@@ -68,7 +68,7 @@ function getTechIcon(name) {
     case 'RBAC & MVC':
       return <ShieldCheck className={`${sizeClass} text-emerald-600`} />;
     case 'Socket.IO':
-      return <Zap className={`${sizeClass} text-purple-600`} />;
+      return <Zap className={`${sizeClass} text-[#7b2cbf]`} />;
     case 'BullMQ':
       return <Layers className={`${sizeClass} text-pink-500`} />;
     case 'MongoDB':
@@ -128,7 +128,7 @@ function getTechIcon(name) {
         </svg>
       );
     case 'Razorpay Gateway':
-      return <CreditCard className={`${sizeClass} text-[#0B409C]`} />;
+      return <CreditCard className={`${sizeClass} text-purple-600`} />;
     default:
       return <Code className={`${sizeClass} text-purple-600`} />;
   }
@@ -203,18 +203,18 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" ref={sectionRef} className="py-24 bg-[#faf6fe] border-t border-purple-100/50">
+    <section id="skills" ref={sectionRef} className="py-24 bg-[#f8fafc] border-t border-purple-100/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="skills-header text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-purple-950 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-4">
             Technical Skillset
           </h2>
-          <p className="text-sm sm:text-base text-zinc-500 max-w-lg mx-auto">
+          <p className="text-sm sm:text-base text-slate-500 max-w-lg mx-auto">
             A comprehensive overview of libraries, frameworks, tools, and platforms I work with.
           </p>
-          <div className="w-12 h-0.5 bg-purple-200 mx-auto mt-4" />
+          <div className="w-12 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto mt-4" />
         </div>
 
         {/* Skills Grid */}
@@ -229,7 +229,7 @@ export default function Skills() {
                   <div className="w-10 h-10 rounded-lg bg-purple-50 flex items-center justify-center border border-purple-100">
                     {category.icon}
                   </div>
-                  <h3 className="text-lg font-semibold text-purple-950">
+                  <h3 className="text-lg font-semibold text-slate-900">
                     {category.title}
                   </h3>
                 </div>
@@ -238,7 +238,7 @@ export default function Skills() {
                   {category.items.map((item, itemIdx) => (
                     <span 
                       key={itemIdx}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-white border border-purple-100/80 rounded-md text-zinc-700 hover:text-purple-700 hover:border-purple-300 transition-colors shadow-xs"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold bg-white border border-purple-100/80 rounded-md text-slate-700 hover:text-purple-700 hover:border-purple-300 transition-colors shadow-xs"
                     >
                       {getTechIcon(item)}
                       {item}

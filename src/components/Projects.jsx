@@ -4,7 +4,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ExternalLink, FolderGit2 } from 'lucide-react';
 import { Github } from './ui/BrandIcons';
 
-
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Projects() {
@@ -131,18 +130,18 @@ export default function Projects() {
   }, [filter]); // Re-run animation when filtering changes
 
   return (
-    <section id="projects" ref={sectionRef} className="py-24 bg-[#faf6fe] border-t border-purple-100/50">
+    <section id="projects" ref={sectionRef} className="py-24 bg-[#f8fafc] border-t border-purple-100/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="projects-header text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-purple-950 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-4">
             Featured Projects
           </h2>
-          <p className="text-sm sm:text-base text-zinc-500 max-w-lg mx-auto">
+          <p className="text-sm sm:text-base text-slate-500 max-w-lg mx-auto">
             A handpicked selection of freelance portals, corporate modules, and personal full-stack projects.
           </p>
-          <div className="w-12 h-0.5 bg-purple-200 mx-auto mt-4" />
+          <div className="w-12 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto mt-4" />
         </div>
 
         {/* Filter Controls */}
@@ -151,10 +150,10 @@ export default function Projects() {
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`px-4 py-2 rounded-md text-xs sm:text-sm font-medium transition-all cursor-pointer ${
+              className={`px-4 py-2 rounded-md text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                 filter === cat 
                   ? 'bg-purple-100 text-purple-950 border border-purple-200' 
-                  : 'text-zinc-600 hover:text-purple-700 hover:bg-purple-50 border border-transparent'
+                  : 'text-slate-600 hover:text-purple-700 hover:bg-purple-50 border border-transparent'
               }`}
             >
               {cat}
@@ -177,16 +176,16 @@ export default function Projects() {
                       {project.category}
                     </span>
                   </div>
-                  <span className="text-xs text-zinc-400 font-medium">
+                  <span className="text-xs text-slate-400 font-medium">
                     {project.period}
                   </span>
                 </div>
 
-                <h3 className="text-lg sm:text-xl font-bold text-purple-950 mb-3 hover:text-purple-750 transition-colors">
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 hover:text-purple-750 transition-colors">
                   {project.title}
                 </h3>
                 
-                <p className="text-sm text-zinc-600 mb-6 leading-relaxed">
+                <p className="text-sm text-slate-600 mb-6 leading-relaxed">
                   {project.description}
                 </p>
 
@@ -194,7 +193,7 @@ export default function Projects() {
                 {project.highlights && (
                   <ul className="mb-6 space-y-2">
                     {project.highlights.map((highlight, hIdx) => (
-                      <li key={hIdx} className="text-xs text-zinc-600 flex items-start gap-1.5 leading-normal">
+                      <li key={hIdx} className="text-xs text-slate-600 flex items-start gap-1.5 leading-normal">
                         <span className="text-purple-300 select-none mt-0.5">•</span>
                         <span>{highlight}</span>
                       </li>
@@ -207,7 +206,7 @@ export default function Projects() {
                   {project.tags.map((tag, tagIdx) => (
                     <span 
                       key={tagIdx}
-                      className="px-2 py-1 text-[11px] font-mono bg-purple-50 border border-purple-100/80 rounded text-purple-700"
+                      className="px-2 py-1 text-[11px] font-mono bg-purple-50 border border-purple-100/80 rounded text-purple-700 hover:border-purple-300 transition-colors"
                     >
                       {tag}
                     </span>
@@ -222,7 +221,7 @@ export default function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-xs font-medium text-zinc-600 hover:text-purple-700 transition-colors"
+                    className="flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-purple-700 transition-colors"
                   >
                     <Github className="w-4 h-4" />
                     Codebase
@@ -233,7 +232,7 @@ export default function Projects() {
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-xs font-medium text-zinc-600 hover:text-purple-700 transition-colors"
+                    className="flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-purple-700 transition-colors"
                   >
                     <ExternalLink className="w-4 h-4" />
                     Live Demo
