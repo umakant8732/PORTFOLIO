@@ -1,24 +1,52 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Mail, Phone, MapPin, Link2, Printer, Download } from 'lucide-react';
 
 export default function App() {
+  const [scale, setScale] = useState(1);
+  const wrapperRef = useRef(null);
+  const PAGE_WIDTH = 820;
+  const PAGE_HEIGHT = 1160;
+
   const handlePrint = () => {
     window.print();
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (!wrapperRef.current) return;
+      const containerWidth = wrapperRef.current.offsetWidth;
+      if (containerWidth < PAGE_WIDTH) {
+        setScale(containerWidth / PAGE_WIDTH);
+      } else {
+        setScale(1);
+      }
+    };
+    
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    
+    // Tiny delay to ensure layout is calculated
+    const timeoutId = setTimeout(handleResize, 100);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(timeoutId);
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen bg-[#f1f5f9] py-10 px-4 sm:px-6 print:p-0 print:bg-white flex flex-col items-center">
+    <div className="min-h-screen bg-[#f1f5f9] py-6 sm:py-10 px-2 sm:px-6 print:p-0 print:bg-white flex flex-col items-center">
       
       {/* Floating Action Bar (Invisible on Print) */}
-      <div className="w-full max-w-[820px] mb-6 flex items-center justify-between bg-white/85 backdrop-blur-md p-4 rounded-xl border border-slate-200/60 shadow-[0_4px_20px_rgba(148,163,184,0.08)] no-print">
+      <div className="w-full max-w-[820px] mb-6 flex flex-col sm:flex-row gap-4 sm:gap-0 sm:items-center justify-between bg-white/85 backdrop-blur-md p-4 rounded-xl border border-slate-200/60 shadow-[0_4px_20px_rgba(148,163,184,0.08)] no-print">
         <div className="flex flex-col">
           <h1 className="text-sm font-bold text-slate-800 tracking-tight">UMAKANT | MERN DEV</h1>
           <p className="text-[11px] text-slate-500 mt-0.5">Pixel-perfect A4 print preview</p>
         </div>
-        <div className="flex gap-3">
+        <div className="flex gap-2.5 w-full sm:w-auto">
           <button 
             onClick={handlePrint}
-            className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-purple-600 hover:bg-purple-700 rounded-lg shadow-sm transition-colors cursor-pointer"
+            className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-purple-600 hover:bg-purple-700 rounded-lg shadow-sm transition-colors cursor-pointer"
           >
             <Printer className="w-3.5 h-3.5" />
             Print / Save PDF
@@ -26,7 +54,7 @@ export default function App() {
           <a 
             href="/Umakant_MERN_Dev.pdf" 
             download="Umakant_MERN_Dev.pdf"
-            className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors"
+            className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-4 py-2 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors"
           >
             <Download className="w-3.5 h-3.5" />
             Raw Download
@@ -34,8 +62,21 @@ export default function App() {
         </div>
       </div>
 
-      {/* A4 Resume Sheet Container */}
-      <div className="w-full max-w-[820px] bg-white shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-slate-200/50 print:border-none print:shadow-none p-10 sm:p-12 font-serif text-slate-900 leading-normal print-page flex flex-col justify-between">
+      {/* Wrapper container that takes full width */}
+      <div 
+        ref={wrapperRef} 
+        className="w-full max-w-[820px] flex justify-center overflow-hidden print:overflow-visible"
+      >
+        {/* A4 Resume Sheet Container */}
+        <div 
+          className="bg-white shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-slate-200/50 print:border-none print:shadow-none p-10 sm:p-12 font-serif text-slate-900 leading-normal print-page flex flex-col justify-between origin-top shrink-0"
+          style={{
+            width: `${PAGE_WIDTH}px`,
+            height: `${PAGE_HEIGHT}px`,
+            transform: `scale(${scale})`,
+            marginBottom: `calc(${PAGE_HEIGHT * scale}px - ${PAGE_HEIGHT}px)`,
+          }}
+        >
         
         {/* Header Block */}
         <div className="text-center pb-4 border-b border-slate-200">
@@ -270,6 +311,8 @@ export default function App() {
           </div>
         </div>
 
+      </div>
+      
       </div>
 
     </div>
