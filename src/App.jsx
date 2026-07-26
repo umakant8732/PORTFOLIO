@@ -3,10 +3,9 @@ import { Mail, Phone, MapPin, Link2, Printer, Download } from 'lucide-react';
 
 export default function App() {
   const [scale, setScale] = useState(1);
-  const [cardHeight, setCardHeight] = useState(1160);
   const wrapperRef = useRef(null);
-  const cardRef = useRef(null);
   const PAGE_WIDTH = 820;
+  const PAGE_HEIGHT = 1300;
 
   const handlePrint = () => {
     window.print();
@@ -14,27 +13,22 @@ export default function App() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (!wrapperRef.current || !cardRef.current) return;
+      if (!wrapperRef.current) return;
       
       const containerWidth = wrapperRef.current.offsetWidth;
       const currentScale = containerWidth < PAGE_WIDTH ? containerWidth / PAGE_WIDTH : 1;
       
       setScale(currentScale);
-      setCardHeight(cardRef.current.offsetHeight);
     };
     
     window.addEventListener('resize', handleResize);
     handleResize();
     
-    const t1 = setTimeout(handleResize, 100);
-    const t2 = setTimeout(handleResize, 300);
-    const t3 = setTimeout(handleResize, 600);
+    const timeoutId = setTimeout(handleResize, 100);
     
     return () => {
       window.removeEventListener('resize', handleResize);
-      clearTimeout(t1);
-      clearTimeout(t2);
-      clearTimeout(t3);
+      clearTimeout(timeoutId);
     };
   }, []);
 
@@ -71,19 +65,19 @@ export default function App() {
         ref={wrapperRef} 
         className="w-full max-w-[820px] flex justify-center overflow-hidden print:overflow-visible"
         style={{
-          height: `${cardHeight * scale}px`
+          height: `${PAGE_HEIGHT * scale}px`
         }}
       >
         {/* A4 Resume Sheet Container */}
         <div 
-          ref={cardRef}
           className="bg-white shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-slate-200/50 print:border-none print:shadow-none p-8 sm:p-10 text-slate-900 leading-normal print-page flex flex-col justify-between origin-top shrink-0"
           style={{
             width: `${PAGE_WIDTH}px`,
             minWidth: `${PAGE_WIDTH}px`,
             maxWidth: 'none',
-            height: 'auto',
+            height: `${PAGE_HEIGHT}px`,
             transform: `scale(${scale})`,
+            marginBottom: `calc(${PAGE_HEIGHT * scale}px - ${PAGE_HEIGHT}px)`,
             fontFamily: '"Times New Roman", Times, Georgia, serif'
           }}
         >
