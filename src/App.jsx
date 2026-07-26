@@ -70,7 +70,7 @@ export default function App() {
       >
         {/* A4 Resume Sheet Container */}
         <div 
-          className="bg-white shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-slate-200/50 print:border-none print:shadow-none p-8 sm:p-10 text-slate-900 leading-normal print-page flex flex-col justify-between origin-top shrink-0"
+          className="bg-white shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-slate-200/50 print:border-none print:shadow-none p-10 sm:p-12 text-slate-900 leading-relaxed print-page flex flex-col justify-start origin-top shrink-0"
           style={{
             width: `${PAGE_WIDTH}px`,
             minWidth: `${PAGE_WIDTH}px`,
@@ -78,7 +78,7 @@ export default function App() {
             height: `${PAGE_HEIGHT}px`,
             transform: `scale(${scale})`,
             marginBottom: `calc(${PAGE_HEIGHT * scale}px - ${PAGE_HEIGHT}px)`,
-            fontFamily: '"Times New Roman", Times, Georgia, serif'
+            fontFamily: 'Georgia, serif'
           }}
         >
         
@@ -87,7 +87,7 @@ export default function App() {
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-wide uppercase text-slate-900">
             UMAKANT BHENDARKAR
           </h1>
-          <p className="text-xs font-medium tracking-widest text-slate-600 mt-1.5 uppercase">
+          <p className="text-xs font-bold tracking-widest text-slate-600 mt-1.5 uppercase">
             Full Stack Developer (MERN)
           </p>
           
@@ -119,7 +119,7 @@ export default function App() {
         </div>
 
         {/* Technical Skills Section */}
-        <div className="mt-4">
+        <div className="mt-3.5">
           <h2 className="text-xs font-extrabold tracking-wider uppercase text-slate-900 border-b-2 border-slate-900 pb-0.5 mb-2">
             Technical Skills
           </h2>
@@ -143,12 +143,12 @@ export default function App() {
         </div>
 
         {/* Professional Experience Section */}
-        <div className="mt-4">
+        <div className="mt-3.5">
           <h2 className="text-xs font-extrabold tracking-wider uppercase text-slate-900 border-b-2 border-slate-900 pb-0.5 mb-2">
             Professional Experience
           </h2>
           
-          <div className="space-y-3.5">
+          <div className="space-y-3">
             
             {/* Experience Block 1 */}
             <div>
@@ -210,12 +210,12 @@ export default function App() {
         </div>
 
         {/* Projects Section */}
-        <div className="mt-4">
+        <div className="mt-3.5">
           <h2 className="text-xs font-extrabold tracking-wider uppercase text-slate-900 border-b-2 border-slate-900 pb-0.5 mb-2">
             Projects
           </h2>
           
-          <div className="space-y-3.5">
+          <div className="space-y-3">
             
             {/* Project Block 1 */}
             <div>
@@ -281,12 +281,12 @@ export default function App() {
         </div>
 
         {/* Education Section */}
-        <div className="mt-4 mb-1">
+        <div className="mt-3.5 mb-1">
           <h2 className="text-xs font-extrabold tracking-wider uppercase text-slate-900 border-b-2 border-slate-900 pb-0.5 mb-2">
             Education
           </h2>
           
-          <div className="space-y-2.5">
+          <div className="space-y-2">
             
             {/* Education Block 1 */}
             <div className="flex justify-between items-baseline">
