@@ -116,7 +116,7 @@ export default function App() {
           <h2 className="text-xs font-extrabold tracking-wider uppercase text-slate-900 border-b-2 border-slate-900 pb-0.5 mb-2">
             Technical Skills
           </h2>
-          <ul className="space-y-0.5 text-[14px] text-slate-800 list-disc pl-4 leading-relaxed font-medium text-justify">
+          <ul className="space-y-0.5 text-[14px] text-slate-900 list-disc pl-4 leading-relaxed font-medium text-justify">
             <li>
               <strong className="text-slate-950 font-bold">Frontend:</strong> React.js, TypeScript, JavaScript (ES6+), Redux Toolkit, TanStack Query, Tailwind CSS
             </li>
@@ -150,9 +150,9 @@ export default function App() {
                 <span className="text-[11px] sm:text-[12px] font-semibold text-slate-600">Dec 2024 – Dec 2025 | Nagpur, India</span>
               </div>
               <div className="flex justify-between items-baseline mb-1">
-                <p className="text-[14px] font-bold text-slate-800">Jr. MERN Stack Developer</p>
+                <p className="text-[14px] font-bold text-slate-900">Jr. MERN Stack Developer</p>
               </div>
-              <ul className="space-y-0.5 text-[14px] text-slate-800 list-disc pl-4 leading-relaxed text-justify">
+              <ul className="space-y-0.5 text-[14px] text-slate-900 list-disc pl-4 leading-relaxed text-justify">
                 <li>
                   Built and delivered <strong className="text-slate-950 font-semibold">15+ full-stack modules</strong> for <strong className="text-slate-950 font-semibold">E-commerce</strong>, <strong className="text-slate-950 font-semibold">Insurance CRM</strong>, and <strong className="text-slate-950 font-semibold">Hospital Management systems</strong>.
                 </li>
@@ -181,9 +181,9 @@ export default function App() {
                 <span className="text-[11px] sm:text-[12px] font-semibold text-slate-600">Jun 2024 – Dec 2024 | Nagpur, India</span>
               </div>
               <div className="flex justify-between items-baseline mb-1">
-                <p className="text-[14px] font-bold text-slate-800">React Developer (Intern)</p>
+                <p className="text-[14px] font-bold text-slate-900">React Developer (Intern)</p>
               </div>
-              <ul className="space-y-0.5 text-[14px] text-slate-800 list-disc pl-4 leading-relaxed text-justify">
+              <ul className="space-y-0.5 text-[14px] text-slate-900 list-disc pl-4 leading-relaxed text-justify">
                 <li>
                   Built modular and responsive user interfaces in <strong className="text-slate-950 font-semibold">React.js</strong> with a focus on reusability and clean component design.
                 </li>
@@ -221,7 +221,7 @@ export default function App() {
                 </h3>
                 <span className="text-[11px] sm:text-[12px] font-semibold text-slate-600">May 2026 – Present</span>
               </div>
-              <ul className="space-y-0.5 text-[14px] text-slate-800 list-disc pl-4 leading-relaxed text-justify">
+              <ul className="space-y-0.5 text-[14px] text-slate-900 list-disc pl-4 leading-relaxed text-justify">
                 <li>
                   Built a scalable LMS with separate teacher and student modules using <strong className="text-slate-950 font-semibold">React.js</strong>, <strong className="text-slate-950 font-semibold">Node.js</strong>, <strong className="text-slate-950 font-semibold">Express.js</strong>, and <strong className="text-slate-950 font-semibold">MongoDB</strong>.
                 </li>
@@ -254,7 +254,7 @@ export default function App() {
                 </h3>
                 <span className="text-[11px] sm:text-[12px] font-semibold text-slate-600">Jan 2026 – Present</span>
               </div>
-              <ul className="space-y-0.5 text-[14px] text-slate-800 list-disc pl-4 leading-relaxed text-justify">
+              <ul className="space-y-0.5 text-[14px] text-slate-900 list-disc pl-4 leading-relaxed text-justify">
                 <li>
                   <strong className="text-slate-950 font-semibold">Independently</strong> designed, developed, and deployed a responsive Gram Panchayat website.
                 </li>
