@@ -125,7 +125,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="text-xs text-slate-500 font-medium">Location</div>
-                  <div className="text-sm font-semibold text-slate-900 font-medium">Nagbhid, Maharashtra, India</div>
+                  <div className="text-sm font-semibold text-slate-900 font-medium">Bangalore, 560076</div>
                 </div>
               </div>
             </div>

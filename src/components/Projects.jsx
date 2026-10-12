@@ -30,7 +30,7 @@ export default function Projects() {
     {
       title: 'Gram Panchayat Portal',
       category: 'Frontend',
-      period: 'Jan 2026 – Present',
+      period: 'Jul 2026 – Present',
       description: 'Independently designed, developed, and deployed a responsive Gram Panchayat website.',
       tags: ['HTML5', 'Tailwind CSS', 'JavaScript (ES6)', 'Responsive UI'],
       github: '#',

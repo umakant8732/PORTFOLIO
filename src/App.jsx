@@ -106,7 +106,7 @@ export default function App() {
             <span className="text-slate-300">|</span>
             <span className="flex items-center gap-1">
               <MapPin className="w-3.5 h-3.5 text-slate-500" />
-              Nagbhid, Maharashtra 441205
+              Bangalore, 560076
             </span>
           </div>
         </div>
@@ -252,7 +252,7 @@ export default function App() {
                     <Link2 className="w-3.5 h-3.5" />
                   </a>
                 </h3>
-                <span className="text-[11px] sm:text-[12px] font-semibold text-slate-600">Jan 2026 – Present</span>
+                <span className="text-[11px] sm:text-[12px] font-semibold text-slate-600">Jul 2026 – Present</span>
               </div>
               <ul className="space-y-0.5 text-[14px] text-slate-900 list-disc pl-4 leading-relaxed text-justify">
                 <li>
