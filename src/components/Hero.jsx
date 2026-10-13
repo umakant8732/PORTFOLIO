@@ -158,8 +158,8 @@ export default function Hero() {
           </a>
           <a 
             ref={btn2Ref}
-            href="/Umakant_Bhendarkar_Resume.pdf" 
-            download="Umakant_Bhendarkar_Resume.pdf"
+            href="/UMAKANT_BHENDARKAR_MERN_DEV_2026.pdf" 
+            download="UMAKANT_BHENDARKAR_MERN_DEV_2026.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-secondary px-7 py-4 rounded-xl flex items-center gap-2 text-sm font-semibold w-full sm:w-auto justify-center"
