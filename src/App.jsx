@@ -42,13 +42,6 @@ export default function App() {
           <p className="text-[11px] text-slate-500 mt-0.5">Pixel-perfect A4 print preview</p>
         </div>
         <div className="flex gap-2.5 w-full sm:w-auto">
-          <button 
-            onClick={handlePrint}
-            className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-purple-600 hover:bg-purple-700 rounded-lg shadow-sm transition-colors cursor-pointer"
-          >
-            <Printer className="w-3.5 h-3.5" />
-            Print / Save PDF
-          </button>
           <a 
             href="/Umakant_MERN_Dev.pdf" 
             download="Umakant_MERN_Dev.pdf"
