@@ -1,316 +1,300 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Mail, Phone, MapPin, Link2, Printer, Download } from 'lucide-react';
+import React, { useState } from 'react';
+import { 
+  Download, 
+  FileText, 
+  ExternalLink, 
+  Check, 
+  Sparkles, 
+  Mail, 
+  Phone, 
+  MapPin, 
+  Eye, 
+  X, 
+  Briefcase, 
+  Code2,
+  FileCheck2,
+  ShieldCheck
+} from 'lucide-react';
 
 export default function App() {
-  const [scale, setScale] = useState(1);
-  const wrapperRef = useRef(null);
-  const PAGE_WIDTH = 820;
-  const PAGE_HEIGHT = 1210;
+  const [downloadStatus, setDownloadStatus] = useState('idle'); // 'idle' | 'downloading' | 'completed'
+  const [showPreviewModal, setShowPreviewModal] = useState(false);
 
-  const handlePrint = () => {
-    window.print();
+  const RESUME_URL = '/UMAKANT_BHENDARKAR_MERN_STACK_DEV.pdf';
+  const RESUME_FILENAME = 'UMAKANT_BHENDARKAR_MERN_STACK_DEV.pdf';
+
+  const triggerDownload = (e) => {
+    // Show download feedback state
+    setDownloadStatus('downloading');
+
+    // Programmatic click to ensure download triggers reliably across all browsers/mobile webviews
+    const link = document.createElement('a');
+    link.href = RESUME_URL;
+    link.setAttribute('download', RESUME_FILENAME);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    setTimeout(() => {
+      setDownloadStatus('completed');
+      setTimeout(() => {
+        setDownloadStatus('idle');
+      }, 3500);
+    }, 600);
   };
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (!wrapperRef.current) return;
-      
-      const containerWidth = wrapperRef.current.offsetWidth;
-      const currentScale = containerWidth < PAGE_WIDTH ? containerWidth / PAGE_WIDTH : 1;
-      
-      setScale(currentScale);
-    };
-    
-    window.addEventListener('resize', handleResize);
-    handleResize();
-    
-    const timeoutId = setTimeout(handleResize, 100);
-    
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      clearTimeout(timeoutId);
-    };
-  }, []);
-
   return (
-    <div className="min-h-screen bg-[#f1f5f9] py-6 sm:py-10 px-2 sm:px-6 print:p-0 print:bg-white flex flex-col items-center">
+    <div className="relative min-h-screen bg-[#090d16] text-slate-100 flex flex-col justify-between items-center px-4 py-8 sm:py-12 selection:bg-cyan-500/30 selection:text-cyan-200 overflow-x-hidden">
       
-      {/* Floating Action Bar (Invisible on Print) */}
-      <div className="w-full max-w-[820px] mb-6 flex flex-col sm:flex-row gap-4 sm:gap-0 sm:items-center justify-between bg-white/85 backdrop-blur-md p-4 rounded-xl border border-slate-200/60 shadow-[0_4px_20px_rgba(148,163,184,0.08)] no-print">
-        <div className="flex flex-col">
-          <h1 className="text-sm font-bold text-slate-800 tracking-tight">UMAKANT | MERN DEV</h1>
-          <p className="text-[11px] text-slate-500 mt-0.5">Pixel-perfect A4 print preview</p>
-        </div>
-        <div className="flex gap-2.5 w-full sm:w-auto">
-          <a 
-            href="/UMAKANT_BHENDARKAR_MERN_DEV_2026.pdf" 
-            download="UMAKANT_BHENDARKAR_MERN_DEV_2026.pdf"
-            className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-4 py-2 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors"
-          >
-            <Download className="w-3.5 h-3.5" />
-            Raw Download
-          </a>
-        </div>
-      </div>
-
-      {/* Wrapper container that takes full width */}
-      <div 
-        ref={wrapperRef} 
-        className="w-full max-w-[820px] flex justify-center overflow-hidden print:overflow-visible"
-        style={{
-          height: `${PAGE_HEIGHT * scale}px`
-        }}
-      >
-        {/* A4 Resume Sheet Container */}
-        <div 
-          className="bg-white shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-slate-200/50 print:border-none print:shadow-none p-10 sm:p-12 text-slate-900 leading-relaxed print-page flex flex-col justify-start origin-top shrink-0"
-          style={{
-            width: `${PAGE_WIDTH}px`,
-            minWidth: `${PAGE_WIDTH}px`,
-            maxWidth: 'none',
-            height: `${PAGE_HEIGHT}px`,
-            transform: `scale(${scale})`,
-            marginBottom: `calc(${PAGE_HEIGHT * scale}px - ${PAGE_HEIGHT}px)`,
-            fontFamily: '"EB Garamond", Garamond, Georgia, serif'
-          }}
-        >
-        
-        {/* Header Block */}
-        <div className="text-center pb-3 border-b border-slate-200">
-          <h1 className="text-3xl sm:text-[44px] font-extrabold tracking-wide uppercase text-slate-900">
-            UMAKANT BHENDARKAR
-          </h1>
-          <p className="text-[13px] sm:text-[15px] font-bold tracking-widest text-slate-600 mt-1.5 uppercase">
-            Full Stack Developer (MERN)
-          </p>
-          
-          {/* Contact Details */}
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-[12px] sm:text-[13.5px] text-slate-700 mt-2.5 font-medium">
-            <span className="flex items-center gap-1">
-              <Phone className="w-3.5 h-3.5 text-slate-500" />
-              +91 9588418970
-            </span>
-            <span className="text-slate-300">|</span>
-            <a href="mailto:umakantbhendarkar94@gmail.com" className="flex items-center gap-1 hover:text-blue-700 transition-colors">
-              <Mail className="w-3.5 h-3.5 text-slate-500" />
-              umakantbhendarkar94@gmail.com
-            </a>
-            <span className="text-slate-300">|</span>
-            <a href="https://www.linkedin.com/in/umakant-bhendarkar-758303256/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 hover:underline transition-colors font-semibold">
-              LinkedIn
-            </a>
-            <span className="text-slate-300">|</span>
-            <a href="https://github.com/umakant8732" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 hover:underline transition-colors font-semibold">
-              GitHub
-            </a>
-            <span className="text-slate-300">|</span>
-            <span className="flex items-center gap-1">
-              <MapPin className="w-3.5 h-3.5 text-slate-500" />
-              Bangalore, 560076
-            </span>
-          </div>
-        </div>
-
-        {/* Technical Skills Section */}
-        <div className="mt-3.5">
-          <h2 className="text-xs font-extrabold tracking-wider uppercase text-slate-900 border-b-2 border-slate-900 pb-0.5 mb-2">
-            Technical Skills
-          </h2>
-          <ul className="space-y-0.5 text-[14px] text-slate-900 list-disc pl-4 leading-relaxed font-medium text-justify">
-            <li>
-              <strong className="text-slate-950 font-bold">Frontend:</strong> React.js, TypeScript, JavaScript (ES6+), Redux Toolkit, TanStack Query, Tailwind CSS
-            </li>
-            <li>
-              <strong className="text-slate-950 font-bold">Backend:</strong> Node.js, Express.js, REST APIs, JWT Authentication, RBAC, MVC Architecture, Socket.IO, BullMQ
-            </li>
-            <li>
-              <strong className="text-slate-950 font-bold">Database & Cache:</strong> MongoDB, MySQL, Redis
-            </li>
-            <li>
-              <strong className="text-slate-950 font-bold">Cloud / DevOps / Media:</strong> AWS EC2, AWS S3, AWS CloudFront, Nginx, Linux (Ubuntu), GitHub Actions, FFmpeg, HLS
-            </li>
-            <li>
-              <strong className="text-slate-950 font-bold">Tools & Integrations:</strong> Git, GitHub, Postman, Bruno, Visual Studio Code, Razorpay
-            </li>
-          </ul>
-        </div>
-
-        {/* Professional Experience Section */}
-        <div className="mt-3.5">
-          <h2 className="text-xs font-extrabold tracking-wider uppercase text-slate-900 border-b-2 border-slate-900 pb-0.5 mb-2">
-            Professional Experience
-          </h2>
-          
-          <div className="space-y-3">
-            
-            {/* Experience Block 1 */}
-            <div>
-              <div className="flex justify-between items-baseline mb-0.5">
-                <h3 className="text-[15px] font-bold text-slate-950">Amika Softwares</h3>
-                <span className="text-[11px] sm:text-[12px] font-semibold text-slate-600">Dec 2024 – Dec 2025 | Nagpur, India</span>
-              </div>
-              <div className="flex justify-between items-baseline mb-1">
-                <p className="text-[14px] font-bold text-slate-900">Jr. MERN Stack Developer</p>
-              </div>
-              <ul className="space-y-0.5 text-[14px] text-slate-900 list-disc pl-4 leading-relaxed text-justify">
-                <li>
-                  Built and delivered <strong className="text-slate-950 font-semibold">15+ full-stack modules</strong> for <strong className="text-slate-950 font-semibold">E-commerce</strong>, <strong className="text-slate-950 font-semibold">Insurance CRM</strong>, and <strong className="text-slate-950 font-semibold">Hospital Management systems</strong>.
-                </li>
-                <li>
-                  Strengthened backend workflows by implementing validation, access control, and consistent error handling across modules.
-                </li>
-                <li>
-                  <strong className="text-slate-950 font-semibold">Optimized MongoDB queries</strong>, indexing, and backend workflows, reducing API response times by 30%.
-                </li>
-                <li>
-                  Integrated <strong className="text-slate-950 font-semibold">5+ third-party</strong> APIs and services, improving business process efficiency by 20%.
-                </li>
-                <li>
-                  Worked on application deployment using <strong className="text-slate-950 font-semibold">AWS EC2</strong> and managed media storage with <strong className="text-slate-950 font-semibold">AWS S3</strong>.
-                </li>
-                <li>
-                  <strong className="text-slate-950 font-semibold">Collaborated with clients</strong> to understand business needs and deliver solutions aligned with project goals.
-                </li>
-              </ul>
-            </div>
-
-            {/* Experience Block 2 */}
-            <div>
-              <div className="flex justify-between items-baseline mb-0.5">
-                <h3 className="text-[15px] font-bold text-slate-950">Amika Softwares</h3>
-                <span className="text-[11px] sm:text-[12px] font-semibold text-slate-600">Jun 2024 – Dec 2024 | Nagpur, India</span>
-              </div>
-              <div className="flex justify-between items-baseline mb-1">
-                <p className="text-[14px] font-bold text-slate-900">React Developer (Intern)</p>
-              </div>
-              <ul className="space-y-0.5 text-[14px] text-slate-900 list-disc pl-4 leading-relaxed text-justify">
-                <li>
-                  Built modular and responsive user interfaces in <strong className="text-slate-950 font-semibold">React.js</strong> with a focus on reusability and clean component design.
-                </li>
-                <li>
-                  <strong className="text-slate-950 font-semibold">Connected 25+ backend APIs</strong> to frontend screens and ensured smooth data handling across multiple features.
-                </li>
-                <li>
-                  Improved screen consistency by structuring frontend flows and UI behavior in a more organized and reusable way.
-                </li>
-                <li>
-                  Delivered user-facing features by converting product requirements into practical and functional frontend implementations.
-                </li>
-              </ul>
-            </div>
-
-          </div>
-        </div>
-
-        {/* Projects Section */}
-        <div className="mt-3.5">
-          <h2 className="text-xs font-extrabold tracking-wider uppercase text-slate-900 border-b-2 border-slate-900 pb-0.5 mb-2">
-            Projects
-          </h2>
-          
-          <div className="space-y-3">
-            
-            {/* Project Block 1 */}
-            <div>
-              <div className="flex justify-between items-baseline mb-0.5">
-                <h3 className="text-[15px] font-bold text-slate-950 flex items-center gap-1">
-                  Acadex LMS Platform (Personal Project)
-                  <a href="https://acadexlearning.xyz" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 no-print">
-                    <Link2 className="w-3.5 h-3.5" />
-                  </a>
-                </h3>
-                <span className="text-[11px] sm:text-[12px] font-semibold text-slate-600">May 2026 – Present</span>
-              </div>
-              <ul className="space-y-0.5 text-[14px] text-slate-900 list-disc pl-4 leading-relaxed text-justify">
-                <li>
-                  Built a scalable LMS with separate teacher and student modules using <strong className="text-slate-950 font-semibold">React.js</strong>, <strong className="text-slate-950 font-semibold">Node.js</strong>, <strong className="text-slate-950 font-semibold">Express.js</strong>, and <strong className="text-slate-950 font-semibold">MongoDB</strong>.
-                </li>
-                <li>
-                  Developed secure <strong className="text-slate-950 font-semibold">JWT</strong>- and <strong className="text-slate-950 font-semibold">RBAC</strong>-based APIs for course, lecture, payment, and protected playback workflows.
-                </li>
-                <li>
-                  Implemented <strong className="text-slate-950 font-semibold">AWS S3</strong> presigned uploads with <strong className="text-slate-950 font-semibold">BullMQ</strong> and <strong className="text-slate-950 font-semibold">FFmpeg</strong> for <strong className="text-slate-950 font-semibold">HLS</strong> video processing and streaming.
-                </li>
-                <li>
-                  Integrated <strong className="text-slate-950 font-semibold">CloudFront</strong> signed playback and <strong className="text-slate-950 font-semibold">Socket.IO</strong> for secure delivery and real-time lecture status updates.
-                </li>
-                <li>
-                  Integrated <strong className="text-slate-950 font-semibold">Razorpay</strong> payment gateway, <strong className="text-slate-950 font-semibold">Redis caching</strong>, <strong className="text-slate-950 font-semibold">TanStack Query</strong>, and enrollment-based course access.
-                </li>
-                <li>
-                  Deployed the platform on <strong className="text-slate-950 font-semibold">AWS EC2</strong> with <strong className="text-slate-950 font-semibold">Nginx</strong>, <strong className="text-slate-950 font-semibold">PM2</strong>, <strong className="text-slate-950 font-semibold">HTTPS</strong>, and custom domain configuration for production use.
-                </li>
-              </ul>
-            </div>
-
-            {/* Project Block 2 */}
-            <div>
-              <div className="flex justify-between items-baseline mb-0.5">
-                <h3 className="text-[15px] font-bold text-slate-950 flex items-center gap-1">
-                  Gram Panchayat Information Portal (Freelance)
-                  <a href="https://grampanchayat-kotgaon.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 no-print">
-                    <Link2 className="w-3.5 h-3.5" />
-                  </a>
-                </h3>
-                <span className="text-[11px] sm:text-[12px] font-semibold text-slate-600">Jul 2026 – Present</span>
-              </div>
-              <ul className="space-y-0.5 text-[14px] text-slate-900 list-disc pl-4 leading-relaxed text-justify">
-                <li>
-                  <strong className="text-slate-950 font-semibold">Independently</strong> designed, developed, and deployed a responsive Gram Panchayat website.
-                </li>
-                <li>
-                  Showcased village budget details, government schemes, public notices, and development initiatives.
-                </li>
-                <li>
-                  Implemented <strong className="text-slate-950 font-semibold">downloadable</strong> birth and marriage certificate formats for citizen services.
-                </li>
-                <li>
-                  Developed a <strong className="text-slate-950 font-semibold">mobile-friendly</strong> interface to improve accessibility for citizens across devices.
-                </li>
-              </ul>
-            </div>
-
-          </div>
-        </div>
-
-        {/* Education Section */}
-        <div className="mt-3.5 mb-1">
-          <h2 className="text-xs font-extrabold tracking-wider uppercase text-slate-900 border-b-2 border-slate-900 pb-0.5 mb-2">
-            Education
-          </h2>
-          
-          <div className="space-y-2">
-            
-            {/* Education Block 1 */}
-            <div className="flex justify-between items-baseline">
-              <div>
-                <h3 className="text-[14px] font-bold text-slate-950">Master of Computer Application (MCA)</h3>
-                <p className="text-[12px] text-slate-600 mt-0.5 font-medium">Inter Institutional Computer Centre, RTMNU Nagpur</p>
-              </div>
-              <div className="text-right">
-                <span className="text-[12px] font-semibold text-slate-600 block">Nov 2021 – Sep 2023</span>
-                <span className="text-[12px] text-slate-500 block mt-0.5">Nagpur, India</span>
-              </div>
-            </div>
-
-            {/* Education Block 2 */}
-            <div className="flex justify-between items-baseline">
-              <div>
-                <h3 className="text-[14px] font-bold text-slate-950">Bachelor of Science (Computer Science)</h3>
-                <p className="text-[12px] text-slate-600 mt-0.5 font-medium">Rashtrapita Mahatma Gandhi Arts & Science College, Nagbhid</p>
-              </div>
-              <div className="text-right">
-                <span className="text-[12px] font-semibold text-slate-600 block">Jul 2017 – Sep 2021</span>
-                <span className="text-[12px] text-slate-500 block mt-0.5">Nagbhid, India</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        </div>
+      {/* Background Ambience */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-60 pointer-events-none" />
       
-      </div>
+      {/* Ambient Radial Gradient Orbs */}
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[550px] h-[350px] bg-gradient-to-r from-blue-600/25 via-indigo-500/25 to-cyan-400/20 blur-[120px] rounded-full pointer-events-none animate-pulse-glow-1" />
+      <div className="absolute bottom-10 right-10 w-[420px] h-[320px] bg-gradient-to-tr from-cyan-600/15 via-blue-600/15 to-purple-600/15 blur-[130px] rounded-full pointer-events-none animate-pulse-glow-2" />
+
+      {/* Top Header Badge */}
+      <header className="relative z-10 w-full max-w-xl flex items-center justify-between mb-8 sm:mb-12">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-slate-700/60 backdrop-blur-md text-xs font-medium text-slate-300 shadow-sm">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span>Open to Full-Time & Contract Roles</span>
+        </div>
+
+        <span className="text-xs font-mono text-slate-400 tracking-wider hidden sm:inline-block">
+          PORTFOLIO &bull; RESUME
+        </span>
+      </header>
+
+      {/* Main Focus Card */}
+      <main className="relative z-10 w-full max-w-xl my-auto">
+        <div className="relative group">
+          
+          {/* Subtle Outer Glowing Gradient Border */}
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500/40 via-blue-600/40 to-indigo-600/40 rounded-3xl blur-md opacity-70 group-hover:opacity-95 transition duration-500" />
+
+          {/* Card Body */}
+          <div className="relative bg-slate-900/90 backdrop-blur-xl border border-slate-700/80 rounded-3xl p-6 sm:p-10 shadow-2xl flex flex-col items-center text-center">
+            
+            {/* Monogram / Avatar with Glow */}
+            <div className="relative mb-5">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-400 p-0.5 shadow-lg shadow-blue-500/25">
+                <div className="w-full h-full bg-slate-950/90 rounded-[14px] flex items-center justify-center">
+                  <span className="text-2xl sm:text-3xl font-black tracking-tight bg-gradient-to-r from-white via-slate-100 to-cyan-200 bg-clip-text text-transparent font-sans">
+                    UB
+                  </span>
+                </div>
+              </div>
+              <div className="absolute -bottom-1 -right-1 bg-emerald-500 text-slate-950 p-1 rounded-full ring-4 ring-slate-900" title="Verified Developer">
+                <ShieldCheck className="w-4 h-4" />
+              </div>
+            </div>
+
+            {/* Developer Identity */}
+            <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white sm:leading-tight">
+              Umakant Bhendarkar
+            </h1>
+            <p className="mt-1.5 text-sm sm:text-base font-medium text-cyan-400 tracking-wide">
+              Full Stack Developer &bull; MERN Stack Specialist
+            </p>
+            <p className="mt-2 text-xs sm:text-sm text-slate-400 max-w-md leading-relaxed">
+              Crafting scalable web architectures, modern React interfaces, robust Node.js microservices & cloud deployments.
+            </p>
+
+            {/* Tech Stack Chips */}
+            <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mt-4 max-w-md">
+              {['React.js', 'Node.js', 'Express', 'MongoDB', 'AWS', 'Redis', 'TypeScript', 'Tailwind'].map((tech) => (
+                <span 
+                  key={tech} 
+                  className="px-2.5 py-1 text-[11px] font-medium text-slate-300 bg-slate-800/80 border border-slate-700/70 rounded-md"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            {/* Document Details Box */}
+            <div className="w-full mt-7 p-4 rounded-2xl bg-slate-950/70 border border-slate-800/90 flex items-center justify-between gap-3 text-left">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 shrink-0">
+                  <FileText className="w-5 h-5" />
+                </div>
+                <div className="overflow-hidden">
+                  <div className="text-xs sm:text-sm font-semibold text-slate-200 truncate flex items-center gap-1.5">
+                    <span>UMAKANT_BHENDARKAR_RESUME</span>
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-blue-500/15 text-blue-400 border border-blue-500/30">
+                      PDF
+                    </span>
+                  </div>
+                  <div className="text-[11px] text-slate-500 mt-0.5 flex items-center gap-2">
+                    <span>90 KB</span>
+                    <span>&bull;</span>
+                    <span>ATS Verified</span>
+                    <span>&bull;</span>
+                    <span className="text-emerald-400 font-medium">Updated 2026</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* View in Browser Trigger */}
+              <button
+                type="button"
+                onClick={() => setShowPreviewModal(true)}
+                className="px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-xs text-slate-300 hover:text-white flex items-center gap-1.5 transition-all shrink-0 cursor-pointer"
+                title="Preview document"
+              >
+                <Eye className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">Preview</span>
+              </button>
+            </div>
+
+            {/* Primary Action Button (Download Resume) */}
+            <div className="w-full mt-5 flex flex-col gap-3">
+              <button
+                type="button"
+                id="download-resume-btn"
+                onClick={triggerDownload}
+                disabled={downloadStatus === 'downloading'}
+                className="w-full group/btn relative overflow-hidden py-4 px-6 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:from-blue-500 hover:via-indigo-500 hover:to-cyan-400 active:scale-[0.99] text-white font-bold text-base sm:text-lg shadow-[0_10px_35px_-8px_rgba(37,99,235,0.5)] transition-all duration-300 flex items-center justify-center gap-3 cursor-pointer disabled:opacity-80"
+              >
+                {/* Button Sheen Highlight */}
+                <div className="absolute inset-0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
+
+                {downloadStatus === 'idle' && (
+                  <>
+                    <Download className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover/btn:-translate-y-0.5" />
+                    <span>Download Resume</span>
+                    <span className="text-xs font-normal opacity-80 px-2 py-0.5 rounded-full bg-white/20">
+                      .PDF
+                    </span>
+                  </>
+                )}
+
+                {downloadStatus === 'downloading' && (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    <span>Preparing Download...</span>
+                  </>
+                )}
+
+                {downloadStatus === 'completed' && (
+                  <>
+                    <Check className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-300 animate-bounce" />
+                    <span>Resume Downloaded!</span>
+                  </>
+                )}
+              </button>
+
+              {/* Direct Link Fallback / Open in New Tab */}
+              <div className="flex items-center justify-center gap-3 text-xs text-slate-400 pt-1">
+                <span>Want to view first?</span>
+                <a
+                  href={RESUME_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-cyan-400 hover:text-cyan-300 font-medium inline-flex items-center gap-1 hover:underline transition-colors"
+                >
+                  Open in New Tab
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </div>
+            </div>
+
+            {/* Quick Contact & Links */}
+            <div className="w-full mt-7 pt-6 border-t border-slate-800/80 flex flex-wrap items-center justify-center gap-3 text-xs text-slate-300">
+              <a 
+                href="mailto:umakantbhendarkar94@gmail.com" 
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/60 hover:text-white transition-colors"
+              >
+                <Mail className="w-3.5 h-3.5 text-cyan-400" />
+                <span>umakantbhendarkar94@gmail.com</span>
+              </a>
+
+              <a 
+                href="tel:+919588418970" 
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/60 hover:text-white transition-colors"
+              >
+                <Phone className="w-3.5 h-3.5 text-emerald-400" />
+                <span>+91 9588418970</span>
+              </a>
+
+              <a 
+                href="https://www.linkedin.com/in/umakant-bhendarkar-758303256/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/60 hover:text-blue-400 transition-colors"
+              >
+                <span>LinkedIn</span>
+                <ExternalLink className="w-3 h-3 text-slate-500" />
+              </a>
+
+              <a 
+                href="https://github.com/umakant8732" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/60 hover:text-white transition-colors"
+              >
+                <span>GitHub</span>
+                <ExternalLink className="w-3 h-3 text-slate-500" />
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="relative z-10 w-full max-w-xl text-center mt-8 sm:mt-12 text-xs text-slate-500">
+        <p>&copy; {new Date().getFullYear()} Umakant Bhendarkar. All rights reserved.</p>
+      </footer>
+
+      {/* Embedded Resume Preview Modal */}
+      {showPreviewModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-md animate-fadeIn">
+          <div className="relative w-full max-w-4xl h-[88vh] bg-slate-900 border border-slate-700 rounded-2xl flex flex-col shadow-2xl overflow-hidden">
+            
+            {/* Modal Header */}
+            <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 bg-slate-950 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <FileCheck2 className="w-5 h-5 text-cyan-400" />
+                <span className="text-sm font-semibold text-slate-200">
+                  Umakant Bhendarkar &bull; Resume Preview
+                </span>
+              </div>
+              
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={triggerDownload}
+                  className="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-xs font-semibold text-white flex items-center gap-1.5 transition-colors cursor-pointer"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  <span>Download</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setShowPreviewModal(false)}
+                  className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors cursor-pointer"
+                  title="Close preview"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Modal Body / PDF Iframe */}
+            <div className="flex-1 w-full bg-slate-950 relative">
+              <iframe
+                src={`${RESUME_URL}#toolbar=0&navpanes=0`}
+                title="Resume Preview"
+                className="w-full h-full border-none"
+              />
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   );
